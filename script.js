@@ -60,4 +60,4 @@ let weather = {
       }
     });
   
-  weather.fetchWeather("Chicago");
+  weather.fetchWeather("Washington D.C.");
