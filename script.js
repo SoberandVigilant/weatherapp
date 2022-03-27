@@ -1,3 +1,5 @@
+
+// Retrieving from weather API
 let weather = {
     apiKey:  "77a33827d954b6c4c1690e6297169701",
     fetchWeather: function (city) {
@@ -7,6 +9,8 @@ let weather = {
           "&units=imperial&appid=" +
           this.apiKey
       )
+
+      // Error response
         .then((response) => {
           if (!response.ok) {
             alert("Can't find weather in that location");
@@ -14,8 +18,11 @@ let weather = {
           }
           return response.json();
         })
+        // Available Weather in Location... Send
         .then((data) => this.displayWeather(data));
     },
+
+    // Display Weather on card
     displayWeather: function (data) {
       const { name } = data;
       const { icon, description } = data.weather[0];
@@ -34,6 +41,8 @@ let weather = {
       document.body.style.backgroundImage =
         "url('https://source.unsplash.com/1600x900/?weather/" + name + "')";
     },
+
+    //Fetching data through search
     search: function () {
       this.fetchWeather(document.querySelector(".search-bar").value);
     },
